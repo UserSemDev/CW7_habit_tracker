@@ -10,6 +10,6 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('user/create/', UserCreateAPIView.as_view(), name='user_create'),
     path('user/update/<int:pk>/', UserUpdateAPIView.as_view(), name='user_update'),
-    path('user/<int:pk>/', UserRetrieveAPIView.as_view(), name='user_detail'),
+    path('user/detail/<int:pk>/', UserRetrieveAPIView.as_view(), name='user_detail'),
     path('user/delete/<int:pk>/', UserDestroyAPIView.as_view(), name='user_delete'),
 ]
