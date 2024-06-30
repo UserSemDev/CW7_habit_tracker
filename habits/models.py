@@ -19,9 +19,9 @@ class Habit(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
                              verbose_name='Пользователь', help_text='Создатель привычки')
     place = models.CharField(max_length=160, verbose_name='Место', help_text='Где необходимо выполнять привычку')
-    time = models.DateTimeField(verbose_name='Время', help_text='Когда необходимо выполнять привычку')
+    time = models.TimeField(verbose_name='Время', help_text='Когда необходимо выполнять привычку')
     action = models.CharField(max_length=160, verbose_name='Действие', help_text='Действие представляющее привычку')
-    is_nice_habit = models.BooleanField(default=True, verbose_name='Признак приятной привычки',
+    is_nice_habit = models.BooleanField(default=False, verbose_name='Признак приятной привычки',
                                         help_text='Приятная привычка')
     related_habit = models.ForeignKey('Habit', on_delete=models.SET_NULL, **NULLABLE, verbose_name='связанная привычка',
                                       help_text='Привычка, которая связана с другой привычкой, указывается для полезной')
@@ -37,8 +37,9 @@ class Habit(models.Model):
                                  help_text='Выполнить привычку в этот день')
 
     def __str__(self):
-        return f'Я буду {self.action} в {self.time} в {self.place}'
+        return self.action
 
     class Meta:
         verbose_name = 'Привычка'
         verbose_name_plural = 'Привычки'
+        ordering = ['action']
