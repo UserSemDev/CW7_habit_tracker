@@ -62,19 +62,19 @@ pip install -r requirements.txt
 - В корне проекта переименуйте файл .env.sample в .env и отредактируйте параметры:
     ```text
     # Postgresql
-    ENGINE="postgresql_psycopg2" - используем psycopg
-    NAME="db_name" - название вашей БД
-    PGUSER="postgres" - имя пользователя БД
-    PASSWORD="secret" - пароль пользователя БД
-    HOST="host" - можно указать "localhost" или "127.0.0.1"
-    PORT=port - указываете порт для подключения по умолчанию 5432
+    POSTGRES_ENGINE="postgresql_psycopg2" - используем psycopg
+    POSTGRES_DB="db_name" - название вашей БД
+    POSTGRES_USER="postgres" - имя пользователя БД
+    POSTGRES_PASSWORD="secret" - пароль пользователя БД
+    POSTGRES_HOST="host" - можно указать "localhost" или "127.0.0.1"
+    POSTGRES_PORT=port - указываете порт для подключения по умолчанию 5432
     
     # Django
     SECRET_KEY=secret_key - секретный ключ django проекта
     DEBUG=True - режим DEBUG
     
     # Redis
-    REDIS_HOST=redis://host:port/0 - данные хост:порт redis
+    REDIS_HOST= - данные redis
     
     # Telegram API
     TELEGRAM_BOT_API_KEY='secret key' - секретный ключ для подключения бота Telegram
